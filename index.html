@@ -17,7 +17,7 @@
 <body ng-app="mymodule">
     <div ng-controller="mycontroller" class="box">
         <marquee><h2>{{msg}}</h2></marquee>
-        Row limit :<input type=number step="1" max="5" min="1" ng-model="rowlimit">
+        Row limit :<input type=number step="1" max="7" min="1" ng-model="rowlimit">
         <table>
              <thead>
                  <tr>
@@ -29,7 +29,7 @@
                  </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="emp in employees | limitTo:rowlimit">
+                <tr ng-repeat="emp in employees | limitTo:rowlimit |orderBy: 'name':false">
                     <td>{{emp.name}}</td>
                     <td>{{emp.dob|date:"dd/MM/yy"}}</td>
                     <td>{{emp.gender}}</td>
