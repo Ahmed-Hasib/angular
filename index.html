@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Angular Js </title>
+    <script src="angular.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        *{margin:0px;padding:0px;}
+        .box{width: 700px;height: 500px;background-color:#999;margin:auto;}
+        table{margin: auto;border: 1px solid white;}
+        td{border:1px solid white;}
+        td{padding-right: 15px; ;}
+    </style>
+</head>
+
+<body ng-app="mymodule">
+    <div ng-controller="mycontroller" class="box">
+        <marquee><h2>{{msg}}</h2></marquee>
+        Row limit :<input type=number step="1" max="5" min="1" ng-model="rowlimit">
+        <table>
+             <thead>
+                 <tr>
+                   <td>Name</td>
+                   <td>Date of Birth</td>
+                   <td>Gender</td>
+                   <td>Salary</td>
+                   <td>Currency</td>
+                 </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="emp in employees | limitTo:rowlimit">
+                    <td>{{emp.name}}</td>
+                    <td>{{emp.dob|date:"dd/MM/yy"}}</td>
+                    <td>{{emp.gender}}</td>
+                    <td>{{emp.salary|number:1}}</td>
+                    <td>{{emp.salary|currency:"Taka "}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
