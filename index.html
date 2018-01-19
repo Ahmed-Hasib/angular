@@ -9,7 +9,7 @@
         *{margin:0px;padding:0px;}
         .box{width: 700px;height: 500px;background-color:#999;margin:auto;}
         table{margin: auto;border: 1px solid white;}
-        .bx{margin:auto;width:400px;height:50px; }
+        .bx{margin:auto;width:500px;height:50px; }
         td{border:1px solid white;}
         td{padding-right: 15px; ;}
     </style>
@@ -20,12 +20,12 @@
         <marquee><h2>{{msg}}</h2></marquee>
         <div class="bx">
         Row limit :<input type=number step="1" max="7" min="1" ng-model="rowlimit">
-            Select sort :<select ng-model="sort">
+            Order By:<select ng-model="sort">
                <option value="name">name</option>
                <option value="gender">Gender</option>
                <option value="salary">salary</option>
-               
             </select>
+            search : <input type="text" placeholder="search" ng-model="srch">
         </div>
         <table>
              <thead>
@@ -38,7 +38,7 @@
                  </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="emp in employees | limitTo:rowlimit |orderBy:sort">
+                <tr ng-repeat="emp in employees | limitTo:rowlimit |orderBy:sort| filter:srch">
                     <td>{{emp.name}}</td>
                     <td>{{emp.dob|date:"dd/MM/yy"}}</td>
                     <td>{{emp.gender}}</td>

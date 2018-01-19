@@ -12,5 +12,6 @@ myapp.controller("mycontroller",function($scope){
     $scope.employees=employee;
     $scope.rowlimit=2;
     $scope.sort="name";
+    $scope.srch="";
     
 });
